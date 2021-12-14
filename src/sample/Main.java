@@ -6,8 +6,9 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage){
-        StageHolder.load();
-        StageHolder.getAuthorizationStage().show();
+
+ StageHolder.load();
+    StageHolder.getAuthorizationStage().show();
     }
 
 

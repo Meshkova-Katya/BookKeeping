@@ -5,9 +5,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #FFFAFA;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BookKeepingController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #FFFAFA;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.BookKeepingController">
     <AnchorPane layoutY="88.0" prefHeight="512.0" prefWidth="600.0" style="-fx-background-color: #87CEFA;">
-      <children>
          <Button fx:id="infoButton" layoutX="191.0" layoutY="159.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="237.0" style="-fx-background-color: #FFFAFA;" text="Информация об организации">
             <font>
                <Font size="14.0" />
@@ -33,7 +32,6 @@
                <Font size="18.0" />
             </font>
          </Label>
-      </children>
     </AnchorPane>
     <Label layoutX="182.0" layoutY="20.0" text="Бухгалтерия №5">
         <font>

@@ -8,37 +8,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #FFFAFA;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <AnchorPane layoutY="88.0" prefHeight="512.0" prefWidth="600.0" style="-fx-background-color: #87CEFA;">
-        <children>
-            <Label layoutX="108.0" layoutY="52.0" text="Выберите организацию-получателя:">
-                <font>
-                    <Font size="24.0" />
-                </font>
-            </Label>
-         <ComboBox fx:id="organizatsiyaComboBox" layoutX="108.0" layoutY="147.0" prefHeight="26.0" prefWidth="210.0">
-             <items>
-                 <FXCollections fx:factory="observableArrayList">
-                     <String fx:value="ПРОТЕК"/>
-                     <String fx:value="Тортуга"/>
-                     <String fx:value="Сервис-Торг"/>
-                 </FXCollections>
-             </items>
-             <value>
-                 <String fx:value="Организация"/>
-             </value>
-         </ComboBox>
-         <Button fx:id="takeInfoButton" layoutX="354.0" layoutY="148.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="162.0" text="Получить информацию" />
-         <Label fx:id="outPutInfoLabel" layoutX="115.0" layoutY="219.0" prefHeight="236.0" prefWidth="402.0" wrapText="true">
-            <font>
-               <Font size="14.0" />
-            </font>
-         </Label>
-        </children>
-    </AnchorPane>
-    <Label layoutX="182.0" layoutY="20.0" text="Бухгалтерия №5">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #87CEFA;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.OrganizatsiyaRecipientController">
+
+    <children>
+    <Label layoutX="166.0" layoutY="150.0" text="Выберите организацию:">
         <font>
-            <Font name="System Bold" size="29.0" />
+          <Font size="24.0" />
         </font>
     </Label>
+    <Button fx:id="takeInfoButton" layoutX="343.0" layoutY="243.0" mnemonicParsing="false" onAction="#initializ" prefHeight="26.0" prefWidth="157.0" text="Получить инфомацию" />
+    <Label fx:id="outPutInfoLabel" alignment="TOP_LEFT" layoutX="99.0" layoutY="326.0" prefHeight="231.0" prefWidth="402.0" wrapText="true" />
+ 
+        <ComboBox fx:id="organizatsiyaComboBox" layoutX="99.0" layoutY="243.0" prefHeight="26.0" prefWidth="210.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="ПРОТЕК" />
+                    <String fx:value="Тортуга" />
+                    <String fx:value="Сервис-Торг" />
+                </FXCollections>
+            </items>
+            <value>
+                <String fx:value="Организация" />
+            </value>
+        </ComboBox>
+    </children>
 </AnchorPane>

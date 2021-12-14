@@ -11,6 +11,8 @@ import java.io.IOException;
 public class StageHolder {
     private static Stage authorizationStage;
     private static Stage registrationStage;
+    private static Stage infoStage;
+
 
     public static void load() {
         try {
@@ -25,15 +27,28 @@ public class StageHolder {
             registrationStage.initModality(Modality.APPLICATION_MODAL);
             registrationStage.setScene(new Scene(root2, 600, 600));
 
+
+            infoStage = new Stage();
+            Parent root3 = FXMLLoader.load(StageHolder.class.getResource("OrganizatsiyaRecipient.fxml"));
+            infoStage.initModality(Modality.APPLICATION_MODAL);
+            infoStage.setScene(new Scene(root3, 600, 600));
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
+
     public static Stage getAuthorizationStage() {
         return authorizationStage;
     }
 
     public static Stage getRegistrationStage() {
         return registrationStage;
+    }
+
+    public static Stage getInfoStage() {
+        return infoStage;
     }
 }

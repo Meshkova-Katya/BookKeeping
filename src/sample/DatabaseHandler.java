@@ -4,12 +4,10 @@ import javafx.scene.control.Alert;
 
 import java.sql.*;
 
-import static sample.ConstOrganizatsiyaRecipient.NAME_RECIPIENT;
-
 import static sample.ConstUser.*;
 
 public class DatabaseHandler extends Configs {
-    static Connection dbConnection;
+ static Connection dbConnection;
 
 
     static {
@@ -77,54 +75,11 @@ public class DatabaseHandler extends Configs {
         return user;
     }
 
-    /*
-        public void add() {
-
-            String select = "SELECT * FROM " + ORGANIZATSIYA_TABLE;
-            try (PreparedStatement prSt = getDbConnection().prepareStatement(select)) {
-
-                ResultSet resultSet = prSt.executeQuery();
-                while (resultSet.next()) {
-                OrganizatsiyaRecipient    organizatsiyaRecipient = new OrganizatsiyaRecipient();
-                    organizatsiyaRecipient.setId_recipient(resultSet.getString(1));
-                    organizatsiyaRecipient.setName_recipient(resultSet.getString(2));
-                    organizatsiyaRecipient.getCity_recipient();
-                    organizatsiyaRecipient.getStreet_recipient();
-                    organizatsiyaRecipient.getType_organization();
-
-                }
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-
-            }
-
-        }
-
-     */
-    public void info(OrganizatsiyaRecipient organizatsiyaRecipient) {
-         organizatsiyaRecipient = new OrganizatsiyaRecipient();
-        String select = "SELECT * FROM " + USER_TABLE + " WHERE " +
-                NAME_RECIPIENT + "= ПРОТЕК ";
-
-        try (PreparedStatement prSt = getDbConnection().prepareStatement(select)) {
 
 
-            ResultSet resultSet = prSt.executeQuery();
-            while (resultSet.next()) {
-                prSt.setString(1, organizatsiyaRecipient.getId_recipient());
-                prSt.setString(2, organizatsiyaRecipient.getName_recipient());
-                prSt.setString(3, organizatsiyaRecipient.getCity_recipient());
-                prSt.setString(4, organizatsiyaRecipient.getStreet_recipient());
-                prSt.setString(5, organizatsiyaRecipient.getType_organization());
 
-            }
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+
 
     private void dialogInfo() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
