@@ -46,7 +46,7 @@ public class StageHolder {
 
             twoTranslationStage = new Stage();
             Parent root5 = FXMLLoader.load(StageHolder.class.getResource("TwoTranslation.fxml"));
-            twoTranslationStage.initModality(Modality.APPLICATION_MODAL);
+            twoTranslationStage.initOwner(translationStage);
             twoTranslationStage.setScene(new Scene(root5, 600, 600));
 
 

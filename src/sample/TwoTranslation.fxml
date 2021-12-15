@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #87CEFA;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TwoTranslationController">
-    <children>
+
         <Label layoutX="252.0" layoutY="75.0" text="Перевод">
             <font>
                 <Font size="24.0" />
@@ -22,12 +22,12 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <Label layoutX="57.0" layoutY="239.0" text="Сумма:">
+        <Label layoutX="56.0" layoutY="245.0" text="Сумма:">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-        <Button fx:id="transferButton" layoutX="236.0" layoutY="368.0" mnemonicParsing="false" onAction="#continueTranslation" style="-fx-background-color: #FFFAFA;" text="Перевести">
+        <Button fx:id="transferButton" layoutX="237.0" layoutY="420.0" mnemonicParsing="false" onAction="#continueTranslation" style="-fx-background-color: #FFFAFA;" text="Перевести">
             <font>
                 <Font size="18.0" />
             </font>
@@ -41,5 +41,11 @@
       <Label fx:id="outPutNameTf" layoutX="381.0" layoutY="199.0" prefHeight="27.0" prefWidth="144.0" />
       <Label fx:id="outPutSumTf" layoutX="381.0" layoutY="239.0" prefHeight="27.0" prefWidth="144.0" />
       <Label fx:id="outPutViewTf" layoutX="381.0" layoutY="286.0" prefHeight="27.0" prefWidth="144.0" />
-    </children>
+   <Label layoutX="56.0" layoutY="329.0" text="Дата:">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label fx:id="outPutDateTf" layoutX="381.0" layoutY="342.0" prefHeight="27.0" prefWidth="144.0" />
+ 
 </AnchorPane>

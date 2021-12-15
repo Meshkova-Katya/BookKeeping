@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class TwoTranslationController extends TranslationController {
@@ -32,10 +33,24 @@ public class TwoTranslationController extends TranslationController {
     private Label outPutViewTf;
 
     @FXML
-    void continueTranslation(ActionEvent event) {
-        String str = getInfo();
-        System.out.println(str);
+    private Label outPutDateTf;
+
+    public TwoTranslationController( Date date, String numberOrganization, double sum, String viewTransfer, int id_transfer) {
+        super(date, numberOrganization, sum, viewTransfer, id_transfer);
+        outPutDateTf.setText(String.valueOf(date));
+        outPutNumberTf.setText(numberOrganization);
+        outPutSumTf.setText(String.valueOf(sum));
+        outPutViewTf.setText(viewTransfer);
+
     }
+
+    @FXML
+    void continueTranslation(ActionEvent event) {
+        String str = getInfo(numberOrganization, viewTransfer, id_transfer);
+        System.out.println(str);
+
+    }
+
 
 
 
