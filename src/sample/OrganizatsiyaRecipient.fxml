@@ -16,10 +16,10 @@
           <Font size="24.0" />
         </font>
     </Label>
-    <Button fx:id="takeInfoButton" layoutX="343.0" layoutY="243.0" mnemonicParsing="false" onAction="#initializ" prefHeight="26.0" prefWidth="157.0" text="Получить инфомацию" />
+    <Button fx:id="takeInfoButton" layoutX="343.0" layoutY="243.0" mnemonicParsing="false" onAction="#outPutInformation" prefHeight="26.0" prefWidth="157.0" style="-fx-background-color: #FFFAFA;" text="Получить инфомацию" />
     <Label fx:id="outPutInfoLabel" alignment="TOP_LEFT" layoutX="99.0" layoutY="326.0" prefHeight="231.0" prefWidth="402.0" wrapText="true" />
  
-        <ComboBox fx:id="organizatsiyaComboBox" layoutX="99.0" layoutY="243.0" prefHeight="26.0" prefWidth="210.0">
+        <ComboBox fx:id="organizatsiyaComboBox" layoutX="99.0" layoutY="243.0" prefHeight="26.0" prefWidth="210.0" style="-fx-background-color: #FFFAFA;">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="ПРОТЕК" />

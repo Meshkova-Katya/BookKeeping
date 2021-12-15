@@ -11,8 +11,10 @@ import java.io.IOException;
 public class StageHolder {
     private static Stage authorizationStage;
     private static Stage registrationStage;
+    private static Stage bookKeepingStage;
     private static Stage infoStage;
-
+    private static Stage translationStage;
+    private static Stage twoTranslationStage;
 
     public static void load() {
         try {
@@ -27,11 +29,25 @@ public class StageHolder {
             registrationStage.initModality(Modality.APPLICATION_MODAL);
             registrationStage.setScene(new Scene(root2, 600, 600));
 
+            bookKeepingStage = new Stage();
+            Parent root6 = FXMLLoader.load(StageHolder.class.getResource("BookKeeping.fxml"));
+            bookKeepingStage.setScene(new Scene(root6, 600, 600));
+
 
             infoStage = new Stage();
             Parent root3 = FXMLLoader.load(StageHolder.class.getResource("OrganizatsiyaRecipient.fxml"));
-            infoStage.initModality(Modality.APPLICATION_MODAL);
+            infoStage.initOwner(bookKeepingStage);
             infoStage.setScene(new Scene(root3, 600, 600));
+
+            translationStage = new Stage();
+            Parent root4 = FXMLLoader.load(StageHolder.class.getResource("Translation.fxml"));
+            translationStage.initOwner(bookKeepingStage);
+            translationStage.setScene(new Scene(root4, 600, 600));
+
+            twoTranslationStage = new Stage();
+            Parent root5 = FXMLLoader.load(StageHolder.class.getResource("TwoTranslation.fxml"));
+            twoTranslationStage.initModality(Modality.APPLICATION_MODAL);
+            twoTranslationStage.setScene(new Scene(root5, 600, 600));
 
 
         } catch (IOException e) {
@@ -47,8 +63,17 @@ public class StageHolder {
     public static Stage getRegistrationStage() {
         return registrationStage;
     }
+    public static Stage getBookKeepingStage(){return bookKeepingStage;}
 
     public static Stage getInfoStage() {
         return infoStage;
+    }
+
+    public static Stage getTranslationStage() {
+        return translationStage;
+    }
+
+    public static Stage getTwoTranslationStage() {
+        return twoTranslationStage;
     }
 }

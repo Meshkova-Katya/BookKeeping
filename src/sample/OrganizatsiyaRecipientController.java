@@ -1,11 +1,11 @@
 package sample;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
+import javafx.event.ActionEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -24,17 +24,18 @@ public class OrganizatsiyaRecipientController {
 
     @FXML
     private Label outPutInfoLabel;
-    @FXML
-    private Button back;
 
-    public String info() {
+
+    public String getInfoRecipient() {
         String str = "";
         String nameOrganization = "";
         if (organizatsiyaComboBox.getValue().equals("ПРОТЕК")) {
             nameOrganization = "ПРОТЕК";
-        }  if (organizatsiyaComboBox.getValue().equals("Тортуга")) {
+        }
+        if (organizatsiyaComboBox.getValue().equals("Тортуга")) {
             nameOrganization = "Тортуга";
-        } if (organizatsiyaComboBox.getValue().equals("Сервис-Торг")) {
+        }
+        if (organizatsiyaComboBox.getValue().equals("Сервис-Торг")) {
             nameOrganization = "Сервис-Торг";
         }
         String select = "SELECT * FROM " + ORGANIZATSIYA_TABLE + " WHERE " +
@@ -51,7 +52,7 @@ public class OrganizatsiyaRecipientController {
                 str = "Номер организации: " + id_recipient + "\n" + "Название организации: " +
                         name_recipient + "\n" + "Город: " + city_recipient + "\n" + "Улица: "
                         + street_recipient + "\n" + "Тип организации " + type_organization;
-                System.out.println(str);
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -61,10 +62,12 @@ public class OrganizatsiyaRecipientController {
 
 
     @FXML
-    public void initializ(ActionEvent actionEvent) {
+    public void outPutInformation(ActionEvent event) {
 
-        outPutInfoLabel.setText(info());
+        outPutInfoLabel.setText(getInfoRecipient());
 
     }
+
+
 
 }

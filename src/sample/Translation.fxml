@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+            prefWidth="600.0" style="-fx-background-color: #87CEFA;" xmlns="http://javafx.com/javafx/15.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TranslationController">
+
+        <Label layoutX="252.0" layoutY="75.0" text="Перевод">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+        <Label layoutX="86.0" layoutY="150.0" text="Номер получателя:">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Label layoutX="86.0" layoutY="197.0" text="Сумма:">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Label layoutX="86.0" layoutY="239.0" text="Вид перечисления:">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="sumTextField" layoutX="349.0" layoutY="198.0"/>
+        <ComboBox fx:id="numberComboBox" layoutX="348.0" layoutY="150.0" prefWidth="150.0" promptText="Выберите номер"
+                  style="-fx-background-color: #FFFAFA;">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value= "345" />
+                    <String fx:value= "456" />
+                    <String fx:value= "543" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <ComboBox fx:id="typeComboBox" layoutX="348.0" layoutY="240.0" prefWidth="150.0" promptText="Выберите тип"
+                  style="-fx-background-color: #FFFAFA;">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Банковский перевод"/>
+                    <String fx:value="Электронный перевод"/>
+                    <String fx:value="Почтовый перевод"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <Button fx:id="continueButton" layoutX="236.0" layoutY="368.0" mnemonicParsing="false"
+                onAction="#continueTransfer" style="-fx-background-color: #FFFAFA;" text="Продолжить">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Button>
+
+</AnchorPane>

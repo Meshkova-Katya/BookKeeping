@@ -1,16 +1,10 @@
 package sample;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class AuthorizationController {
 
@@ -21,7 +15,7 @@ public class AuthorizationController {
     private PasswordField passwordSignField;
 
     @FXML
-    private Button SignInButton;
+    private Button signInButton;
 
     @FXML
     private Button registerButton;
@@ -29,7 +23,7 @@ public class AuthorizationController {
 
     @FXML
     public void initialize() {
-        SignInButton.setOnAction(event -> {
+        signInButton.setOnAction(event -> {
             String login = loginSignField.getText().trim();
             String password = passwordSignField.getText().trim();
             if (!login.equals("") && !password.equals("")) {
@@ -53,21 +47,9 @@ public class AuthorizationController {
         } else {
             dialogInfo();
 
-            SignInButton.getScene().getWindow().hide(); // закрытие текущего окна
+            StageHolder.getAuthorizationStage().close();
+            StageHolder.getBookKeepingStage().showAndWait();
 
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("BookKeeping.fxml"));
-
-            try {
-                loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root, 600, 600));
-            stage.showAndWait(); // чтобы подождал
 
         }
 
@@ -86,5 +68,6 @@ public class AuthorizationController {
         alert.setHeaderText("Вы успешно вошли в систему!");
         alert.showAndWait();
     }
+
 }
 
