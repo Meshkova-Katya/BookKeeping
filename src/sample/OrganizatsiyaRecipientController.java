@@ -51,7 +51,7 @@ public class OrganizatsiyaRecipientController {
                 String type_organization = resultSet.getString("type_organization");
                 str = "Номер организации: " + id_recipient + "\n" + "Название организации: " +
                         name_recipient + "\n" + "Город: " + city_recipient + "\n" + "Улица: "
-                        + street_recipient + "\n" + "Тип организации " + type_organization;
+                        + street_recipient + "\n" + "Тип организации: " + type_organization;
 
             }
         } catch (Exception e) {

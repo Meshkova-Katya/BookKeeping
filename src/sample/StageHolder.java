@@ -15,6 +15,7 @@ public class StageHolder {
     private static Stage infoStage;
     private static Stage translationStage;
     private static Stage twoTranslationStage;
+    private static Stage historyTranslationStage;
 
     public static void load() {
         try {
@@ -46,9 +47,13 @@ public class StageHolder {
 
             twoTranslationStage = new Stage();
             Parent root5 = FXMLLoader.load(StageHolder.class.getResource("TwoTranslation.fxml"));
-            twoTranslationStage.initOwner(translationStage);
+            twoTranslationStage.initOwner(bookKeepingStage);
             twoTranslationStage.setScene(new Scene(root5, 600, 600));
 
+            historyTranslationStage = new Stage();
+            Parent root7 = FXMLLoader.load(StageHolder.class.getResource("HistoryTranslation.fxml"));
+            historyTranslationStage.initOwner(bookKeepingStage);
+            historyTranslationStage.setScene(new Scene(root7, 600, 600));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -63,7 +68,10 @@ public class StageHolder {
     public static Stage getRegistrationStage() {
         return registrationStage;
     }
-    public static Stage getBookKeepingStage(){return bookKeepingStage;}
+
+    public static Stage getBookKeepingStage() {
+        return bookKeepingStage;
+    }
 
     public static Stage getInfoStage() {
         return infoStage;
@@ -76,4 +84,5 @@ public class StageHolder {
     public static Stage getTwoTranslationStage() {
         return twoTranslationStage;
     }
+    public static Stage getHistoryTranslationStage(){return historyTranslationStage;}
 }

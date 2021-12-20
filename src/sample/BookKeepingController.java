@@ -26,9 +26,8 @@ public class BookKeepingController {
     @FXML
     void initialize() {
         infoButton.setOnAction(event -> StageHolder.getInfoStage().showAndWait());
-        translationButton.setOnAction(event -> {
-            StageHolder.getTranslationStage().showAndWait();
-        });
+        translationButton.setOnAction(event -> StageHolder.getTranslationStage().showAndWait());
+        historyTranslationButton.setOnAction(event -> StageHolder.getHistoryTranslationStage().showAndWait());
 
     }
 

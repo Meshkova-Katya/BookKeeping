@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #87CEFA;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TwoTranslationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseMoved="#onMouseMoved" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #87CEFA;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TwoTranslationController">
 
         <Label layoutX="252.0" layoutY="75.0" text="Перевод">
             <font>
@@ -17,35 +17,36 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <Label layoutX="55.0" layoutY="199.0" text="Название ораганизации-получателя:">
+        <Label layoutX="56.0" layoutY="199.0" text="Сумма:">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-        <Label layoutX="56.0" layoutY="245.0" text="Сумма:">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
-        <Button fx:id="transferButton" layoutX="237.0" layoutY="420.0" mnemonicParsing="false" onAction="#continueTranslation" style="-fx-background-color: #FFFAFA;" text="Перевести">
+        <Button fx:id="transferButton" layoutX="237.0" layoutY="480.0" mnemonicParsing="false" onAction="#continueTranslation" style="-fx-background-color: #FFFAFA;" text="Перевести">
             <font>
                 <Font size="18.0" />
             </font>
         </Button>
-      <Label layoutX="56.0" layoutY="286.0" text="Вид перечисления:">
+      <Label layoutX="56.0" layoutY="252.0" text="Вид перечисления:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="outPutNumberTf" layoutX="381.0" layoutY="147.0" prefHeight="27.0" prefWidth="144.0" />
-      <Label fx:id="outPutNameTf" layoutX="381.0" layoutY="199.0" prefHeight="27.0" prefWidth="144.0" />
-      <Label fx:id="outPutSumTf" layoutX="381.0" layoutY="239.0" prefHeight="27.0" prefWidth="144.0" />
-      <Label fx:id="outPutViewTf" layoutX="381.0" layoutY="286.0" prefHeight="27.0" prefWidth="144.0" />
-   <Label layoutX="56.0" layoutY="329.0" text="Дата:">
+      <Label fx:id="outPutNumberTf" layoutX="283.0" layoutY="147.0" prefHeight="27.0" prefWidth="242.0" />
+      <Label fx:id="outPutIdTransfer" layoutX="283.0" layoutY="363.0" prefHeight="27.0" prefWidth="242.0" />
+      <Label fx:id="outPutSumTf" layoutX="283.0" layoutY="199.0" prefHeight="27.0" prefWidth="242.0" />
+      <Label fx:id="outPutViewTf" layoutX="283.0" layoutY="252.0" prefHeight="27.0" prefWidth="242.0" />
+    
+   <Label layoutX="54.0" layoutY="313.0" text="Дата:">
       <font>
          <Font size="18.0" />
       </font>
    </Label>
-   <Label fx:id="outPutDateTf" layoutX="381.0" layoutY="342.0" prefHeight="27.0" prefWidth="144.0" />
+   <Label fx:id="outPutDateTf" layoutX="283.0" layoutY="313.0" prefHeight="27.0" prefWidth="242.0" />
+   <Label layoutX="54.0" layoutY="363.0" text="Номер транзакции:">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
  
 </AnchorPane>

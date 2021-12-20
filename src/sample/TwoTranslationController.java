@@ -2,11 +2,13 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
-import java.util.Date;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class TwoTranslationController extends TranslationController {
@@ -24,7 +26,7 @@ public class TwoTranslationController extends TranslationController {
     private Label outPutNumberTf;
 
     @FXML
-    private Label outPutNameTf;
+    private Label outPutIdTransfer;
 
     @FXML
     private Label outPutSumTf;
@@ -35,23 +37,32 @@ public class TwoTranslationController extends TranslationController {
     @FXML
     private Label outPutDateTf;
 
-    public TwoTranslationController( Date date, String numberOrganization, double sum, String viewTransfer, int id_transfer) {
-        super(date, numberOrganization, sum, viewTransfer, id_transfer);
-        outPutDateTf.setText(String.valueOf(date));
-        outPutNumberTf.setText(numberOrganization);
-        outPutSumTf.setText(String.valueOf(sum));
-        outPutViewTf.setText(viewTransfer);
-
-    }
-
     @FXML
-    void continueTranslation(ActionEvent event) {
-        String str = getInfo(numberOrganization, viewTransfer, id_transfer);
-        System.out.println(str);
+    public void continueTranslation(ActionEvent event) {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        dialogInfo();
+        StageHolder.getTwoTranslationStage().close();
+        StageHolder.getTranslationStage().close();
+        try {
+            dbHandler.saveTransfer();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
     }
+    @FXML
+    public void onMouseMoved(MouseEvent event){
+        outPutNumberTf.setText(TranslationHolder.getNumberOrganization());
+        outPutIdTransfer.setText(Integer.valueOf(TranslationHolder.getId_transfer()).toString());
+        outPutSumTf.setText(Double.valueOf(TranslationHolder.getSum()).toString());
+        outPutViewTf.setText(TranslationHolder.getViewTransfer());
+        outPutDateTf.setText(TranslationHolder.getDate().toString());
+    }
 
-
-
-
+    private void dialogInfo() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Информационный диалог");
+        alert.setHeaderText("Перевод выполнен!");
+        alert.showAndWait();
+    }
 }
