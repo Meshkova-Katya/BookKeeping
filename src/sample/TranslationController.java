@@ -28,6 +28,9 @@ public class TranslationController {
     private ComboBox<String> typeComboBox;
 
     @FXML
+    private ComboBox<?> typeComboBox1;
+
+    @FXML
     private Button continueButton;
 
     private void setInfo() {

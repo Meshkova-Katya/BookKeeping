@@ -55,5 +55,24 @@
                 <Font size="18.0" />
             </font>
         </Button>
+   <Label layoutX="86.0" layoutY="286.0">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="86.0" layoutY="286.0" text="Вид деятельности:">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <ComboBox fx:id="typeComboBox1" layoutX="348.0" layoutY="287.0" prefHeight="26.0" prefWidth="188.0" promptText="Выберите тип" style="-fx-background-color: #FFFAFA;">
+      <items>
+         <FXCollections fx:factory="observableArrayList">
+            <String fx:value="На оплату помещения" />
+            <String fx:value="На зарплату сотрудникам" />
+            <String fx:value="На покупку изделий" />
+         </FXCollections>
+      </items>
+   </ComboBox>
 
 </AnchorPane>

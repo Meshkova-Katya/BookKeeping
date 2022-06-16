@@ -19,16 +19,13 @@ public class TranslationHolderTest {
         translationHolder.setSum(1000.0);
         assertEquals(getSum(), 1000.0, 0);
     }
-
     private double getSum() {
         return 1000;
     }
 
-
     public String getNumberOrganization() {
         return "345";
     }
-
     @Test
     public void setNumberOrganization() {
         translationHolder.setNumberOrganization("345");

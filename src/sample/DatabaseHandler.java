@@ -20,8 +20,9 @@ public class DatabaseHandler extends Configs {
         }
     }
 
+
     public static Connection getDbConnection() throws ClassNotFoundException, SQLException {
-        String url = "jdbc:mysql://localhost/bookkeeping?serverTimezone=Europe/Moscow&useSSL=false";
+        String url = "jdbc:mysql://127.0.0.1:3306/bookkeeping";
         String userName = dbUser;
         String password = dbPass;
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -30,15 +31,10 @@ public class DatabaseHandler extends Configs {
     }
 
     public void registration(User user) throws SQLException {
-
-        String insert = "INSERT INTO " + USER_TABLE + " ( " + USER_LOGIN + ", " + USER_PASSWORD + ") " + "VALUES (?, ?)";
-
-
+        String insert = "INSERT INTO " + USER_TABLE + " ( " + USER_LOGIN + ", " + USER_PASSWORD + ") " +
+                "VALUES (?, ?)";
         try {
-
             try (PreparedStatement prSt = getDbConnection().prepareStatement(insert)) {
-
-
                 prSt.setString(1, user.getLogin());
                 prSt.setString(2, user.getPassword());
 
@@ -46,23 +42,19 @@ public class DatabaseHandler extends Configs {
                 prSt.executeUpdate();
 
                 dialogInfo();
-
-
             }
         } catch (SQLException | ClassNotFoundException e) {
-
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Ошибка");
-                alert.setHeaderText("Пользователь с таким логином уже создан!");
-                alert.showAndWait();
-            
-
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Ошибка");
+            alert.setHeaderText("Пользователь с таким логином уже создан!");
+            alert.showAndWait();
         }
     }
 
-    public void saveTransfer() throws SQLException {
-
-        String insert = "INSERT INTO transfers (id_transfer, date_transfer, transfer_type, sum_transfer, id_recipient) " +
+    public void updateTransfer() throws SQLException {
+        String insert = "INSERT INTO transfers (id_transfer, date_transfer," +
+                " transfer_type," +
+                " sum_transfer, id_recipient) " +
                 "VALUES (?, ?, ?, ?, ?)";
         try {
             try (PreparedStatement prSt = getDbConnection().prepareStatement(insert)) {
@@ -71,13 +63,12 @@ public class DatabaseHandler extends Configs {
                 prSt.setString(3, TranslationHolder.getViewTransfer());
                 prSt.setDouble(4, TranslationHolder.getSum());
                 prSt.setString(5, TranslationHolder.getNumberOrganization());
-                // Добавляет в бд
+                // Обновляет данные в БД
                 prSt.executeUpdate();
             }
         } catch (SQLException | ClassNotFoundException e) {
             error(e.getMessage());
         }
-
     }
 
     public User authorization(String login, String password) {
@@ -92,8 +83,6 @@ public class DatabaseHandler extends Configs {
             ResultSet resultSet = prSt.executeQuery();
             while (resultSet.next()) {
                 user = new User();
-
-
             }
 
         } catch (Exception e) {
@@ -133,6 +122,24 @@ public class DatabaseHandler extends Configs {
             error(ex.getMessage());
         }
         return p;
+    }
+
+    public List<Translation> getTransferByNumber(String number) {
+        String sql = "Select * from transfers where id_transfer LIKE '%" + number + "%'";
+        List<Translation> list = new ArrayList<>();
+
+        try {
+            Statement stmt = dbConnection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                Translation p = createTransfer(rs);
+                list.add(p);
+            }
+
+        } catch (SQLException ex) {
+            error(ex.getMessage());
+        }
+        return list;
     }
 
 

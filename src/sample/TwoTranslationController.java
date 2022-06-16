@@ -44,7 +44,7 @@ public class TwoTranslationController extends TranslationController {
         StageHolder.getTwoTranslationStage().close();
         StageHolder.getTranslationStage().close();
         try {
-            dbHandler.saveTransfer();
+            dbHandler.updateTransfer();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

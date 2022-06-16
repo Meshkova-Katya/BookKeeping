@@ -6,6 +6,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
 import javafx.event.ActionEvent;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -52,7 +53,6 @@ public class OrganizatsiyaRecipientController {
                 str = "Номер организации: " + id_recipient + "\n" + "Название организации: " +
                         name_recipient + "\n" + "Город: " + city_recipient + "\n" + "Улица: "
                         + street_recipient + "\n" + "Тип организации: " + type_organization;
-
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,7 +67,6 @@ public class OrganizatsiyaRecipientController {
         outPutInfoLabel.setText(getInfoRecipient());
 
     }
-
 
 
 }

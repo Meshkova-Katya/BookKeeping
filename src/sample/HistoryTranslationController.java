@@ -4,9 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.WindowEvent;
 
@@ -30,7 +28,11 @@ public class HistoryTranslationController {
     private Label outPutInfoLabel;
     @FXML
     private TableView<Translation> table;
+    @FXML
+    private TextField numberTf;
 
+    @FXML
+    private Button searchButton;
 
     @FXML
     void initialize() {
@@ -50,8 +52,21 @@ public class HistoryTranslationController {
                     table.getColumns().add(col);
                 }
             }
+
         });
-
-
+        searchButton.setOnAction(event -> {
+            DatabaseHandler dbHandler = new DatabaseHandler();
+            ObservableList<Translation> tr = FXCollections.observableArrayList();
+            String number = numberTf.getText();
+            tr.addAll(dbHandler.getTransferByNumber(number));
+            table.setItems(tr);
+            for (int i = 0; i <
+                    propertyLabel.length; i++) {
+                TableColumn<Translation, Object> col = new TableColumn<>(propertyLabel[i]);
+                col.setCellValueFactory(new
+                        PropertyValueFactory<>(propertyName[i]));
+                table.getColumns().add(col);
+            }
+        });
     }
 }
